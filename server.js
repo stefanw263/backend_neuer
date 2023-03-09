@@ -15,10 +15,6 @@ let db
 
 app.use(express.json())
 
-// app.use(cors({
-//   origin: 'http://127.0.0.1:5173'
-// }));
-
 app.get('/contacts', async (req,res) => {
   let collection = await db.collection("Contacts");
   let results = await collection.find({}).toArray();
