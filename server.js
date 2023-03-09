@@ -1,5 +1,6 @@
 const express = require('express')
 const { MongoClient, ObjectId } = require('mongodb')
+const cors = require('cors')
 
 const app = express()
 const port = 3000
@@ -14,6 +15,10 @@ let db
 
 
 app.use(express.json())
+
+app.use(cors({
+  origin: '*'
+}));
 
 app.get('/contacts', async (req,res) => {
   let collection = await db.collection("Contacts");
